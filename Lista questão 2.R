@@ -14,7 +14,7 @@ br = dados %>% filter(tolower(location) == "brazil")
 
 
 
-# converter para data
+# convertendo
 dados1 <- br %>%
   mutate(date = as.Date(date))
 
@@ -22,7 +22,7 @@ dados1 <- br %>%
 
 dados1 %>%
   pivot_longer(
-    cols = where(is.numeric),  # só pega colunas numéricas
+    cols = where(is.numeric),  #só colunas numéricas
     names_to = "name",
     values_to = "value"
   ) %>%
@@ -31,3 +31,4 @@ dados1 %>%
   facet_grid(name ~ ., scales = "free_y") +
   labs(
     title = "Diaria Temperatura e Pressão")
+
